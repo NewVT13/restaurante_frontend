@@ -1,0 +1,21 @@
+body {
+  background: #f4ece3;
+}
+
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  color: #77695c;
+}
+
+.containerInput input {
+  height: 38px;
+  border-radius: 8px;
+  padding-left: 10px;
+}
+
+.containerInput label {
+  padding-top: 10px;
+}
