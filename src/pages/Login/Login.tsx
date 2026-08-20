@@ -1,25 +1,33 @@
-import styles from "./Login.module.css";
-import stylesIndex from "../../index.module.css";
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
+import styles from "./Login.module.css";
+import stylesIndex from "../../index.module.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  async function fazerLogin(event: FormEvent<HTMLFormElement>) {
+  const navegate = useNavigate();
+  async function fazerLogin(event: React.SubmitEvent) {
     try {
       event.preventDefault();
       await axios.post("http://localhost:8888/auth/login", {
         email,
         senha: password,
       });
-    } catch (error) {
+
+      Swal.fire({
+        icon: "success",
+        title: "Bem-vindo ao sistema",
+      });
+
+      navegate("/mesas");
+    } catch (error: any) {
       Swal.fire({
         icon: "error",
         title: "Erro ao entrar",
-        text: "Verifique seu email e senha e tente novamente.",
+        text: error.response.data.error,
       });
     }
   }
@@ -37,6 +45,7 @@ function Login() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
 
@@ -47,6 +56,7 @@ function Login() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
       </div>
