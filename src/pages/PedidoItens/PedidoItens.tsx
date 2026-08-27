@@ -5,13 +5,29 @@ import { useEffect, useState } from "react";
 function PedidosItens() {
   const dados = getDataLocalStorage();
 
-  const [itensCardapio, setItensCardapio] = useState([]);
+  type cardaplio = {
+    id: number;
+    nome: string;
+    preco: string;
+    tipo: string;
+    porcoes: number;
+    tamanho: "P" | "M" | "G";
+    vegetariano: boolean;
+    descricao: string | null;
+    criado_em: string;
+    atualizado_em: string;
+  };
+
+  const [itensCardapio, setItensCardapio] = useState<cardaplio[]>([]);
   async function buscarItensCardapio() {
-    const response = await axios.get("http://localhost:8888/cardaplios", {
-      headers: {
-        Authorization: `Bearen ${dados.token}`,
+    const response = await axios.get<cardaplio[]>(
+      "http://localhost:8888/cardaplios",
+      {
+        headers: {
+          Authorization: `Bearen ${dados.token}`,
+        },
       },
-    });
+    );
 
     setItensCardapio(response.data);
   }
@@ -22,7 +38,7 @@ function PedidosItens() {
   return (
     <div>
       {itensCardapio.map((itemcardapio) => (
-        <ul>
+        <ul key={itemcardapio.id}>
           <li>{itemcardapio.nome}</li>
           <li>{itemcardapio.preco}</li>
         </ul>

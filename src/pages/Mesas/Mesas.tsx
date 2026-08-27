@@ -7,11 +7,20 @@ import { getDataLocalStorage } from "../../utils/getDataLocalStorage";
 
 const dados = getDataLocalStorage();
 
+type mesa = {
+  id: number;
+  nome: string;
+  lugares: number | null;
+  reservado: boolean;
+  criado_em: string;
+  atualizado_em: string;
+};
+
 function Mesas() {
-  const [mesas, setMesas] = useState([]);
+  const [mesas, setMesas] = useState<mesa[]>([]);
 
   async function buscarMesas() {
-    const response = await axios.get("http://localhost:8888/mesas", {
+    const response = await axios.get<mesa[]>("http://localhost:8888/mesas", {
       headers: {
         Authorization: "Bearen " + dados.token,
       },
