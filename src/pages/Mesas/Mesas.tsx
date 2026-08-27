@@ -1,16 +1,23 @@
 import { FaDoorOpen } from "react-icons/fa";
 import { GiWoodenChair } from "react-icons/gi";
 import style from "./Mesas.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { getDataLocalStorage } from "../../utils/getDataLocalStorage";
+
+const dados = getDataLocalStorage();
 
 function Mesas() {
+  const [mesas, setMesas] = useState([]);
+
   async function buscarMesas() {
     const response = await axios.get("http://localhost:8888/mesas", {
       headers: {
-        Authorization: "Bearers ",
+        Authorization: "Bearen " + dados.token,
       },
     });
+
+    setMesas(response.data);
   }
 
   useEffect(() => {
@@ -29,7 +36,7 @@ function Mesas() {
           </ul>
         </div>
         <div className={style.contentRight}>
-          <span>Funcionario</span>
+          <span>{dados.role}</span>
           <span>
             <FaDoorOpen />
           </span>
@@ -40,17 +47,18 @@ function Mesas() {
       <p>Selecione uma mesa para abrir ou acompanhar um pedido</p>
 
       <div className={style.containerChairs}>
-        <div className={style.chair}>
-          <div className={style.chairHeader}>
-            <span>Livre</span>
-            <GiWoodenChair />
+        {mesas.map((mesa) => (
+          <div key={mesa.id} className={style.chair}>
+            <div className={style.chairHeader}>
+              <span>{mesa.reservado ? "Ocupado" : "Livre"}</span>
+              <GiWoodenChair />
+            </div>
+            <h3>{mesa.nome}</h3>
+            <span>{mesa.lugares} lugares</span>
           </div>
-          <h3>Mesa 01</h3>
-          <span>3 lugares</span>
-        </div>
+        ))}
       </div>
     </div>
   );
 }
-
 export default Mesas;

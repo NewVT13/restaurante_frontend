@@ -12,10 +12,12 @@ function Login() {
   async function fazerLogin(event: React.SubmitEvent) {
     try {
       event.preventDefault();
-      await axios.post("http://localhost:8888/auth/login", {
+      const response = await axios.post("http://localhost:8888/auth/login", {
         email,
         senha: password,
       });
+
+      localStorage.setItem("@dadosLogin", JSON.stringify(response.data));
 
       Swal.fire({
         icon: "success",
