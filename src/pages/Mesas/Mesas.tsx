@@ -1,4 +1,3 @@
-import { FaDoorOpen } from "react-icons/fa";
 import { GiWoodenChair } from "react-icons/gi";
 import style from "./Mesas.module.css";
 import { useEffect, useState } from "react";
@@ -77,26 +76,8 @@ function Mesas() {
 
   return (
     <div>
-      <div className={style.containerMenu}>
-        <div className={style.contentLeft}>
-          <span className={style.logoMenu}>🍽️</span>
-          <h1 className="{}">Sabor & Arte</h1>
-          <ul>
-            <li>Mesas</li>
-            <li>Pedidos</li>
-          </ul>
-        </div>
-        <div className={style.contentRight}>
-          <span>{dados.role}</span>
-          <span>
-            <FaDoorOpen />
-          </span>
-        </div>
-      </div>
-
       <h2>Mesas</h2>
       <p>Selecione uma mesa para abrir ou acompanhar um pedido</p>
-
       <div className={style.containerChairs}>
         {mesas.map((mesa) => (
           <div
