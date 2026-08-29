@@ -75,9 +75,11 @@ function Mesas() {
   }, []);
 
   return (
-    <div>
-      <h2>Mesas</h2>
-      <p>Selecione uma mesa para abrir ou acompanhar um pedido</p>
+    <div className={style.page}>
+      <h2 className={style.title}>Mesas</h2>
+      <p className={style.subtitle}>
+        Selecione uma mesa para abrir ou acompanhar um pedido
+      </p>
       <div className={style.containerChairs}>
         {mesas.map((mesa) => (
           <div

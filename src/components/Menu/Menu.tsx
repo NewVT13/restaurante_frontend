@@ -10,7 +10,7 @@ function Menu() {
     <div className={style.containerMenu}>
       <div className={style.contentLeft}>
         <span className={style.logoMenu}>🍽️</span>
-        <h1 className="{}">Sabor & Arte</h1>
+        <h1>Sabor & Arte</h1>
         <ul>
           <Link to={"/mesas"}>
             <li>Mesas</li>
