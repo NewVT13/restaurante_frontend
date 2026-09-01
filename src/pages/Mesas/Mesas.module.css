@@ -7,13 +7,13 @@
 .title {
   margin: 0;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
-  color: #3d312b;
+  color: var(--cor-texto-escuro);
 }
 
 .subtitle {
   margin: 0.5rem 0 0;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: #77695c;
+  color: var(--cor-texto-suave);
 }
 
 .containerChairs {
@@ -30,9 +30,9 @@
   gap: 0.75rem;
   padding: 1rem;
   border-radius: 14px;
-  background: #fff;
+  background: var(--cor-branco);
   min-height: 150px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 18px var(--cor-sombra-card);
   cursor: pointer;
   transition:
     transform 0.2s ease,
@@ -41,7 +41,7 @@
 
 .chair:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 20px var(--cor-sombra-card-hover);
 }
 
 .chairHeader {
@@ -50,18 +50,18 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: #5d4d43;
+  color: var(--cor-texto-medio);
 }
 
 .chair h3 {
   margin: 0;
   font-size: 1.1rem;
-  color: #3d312b;
+  color: var(--cor-texto-escuro);
 }
 
 .chair span:last-child {
   font-size: 0.95rem;
-  color: #77695c;
+  color: var(--cor-texto-suave);
 }
 
 @media (max-width: 480px) {

@@ -18,7 +18,7 @@
 
 .top {
   animation: top 5s linear infinite;
-  border-top: 14px solid #fff;
+  border-top: 14px solid var(--cor-branco);
   border-right: 14px solid transparent;
   border-left: 14px solid transparent;
   height: 0px;
@@ -38,7 +38,7 @@
 .bottom {
   animation: bottom 5s linear infinite;
   border-right: 14px solid transparent;
-  border-bottom: 14px solid #fff;
+  border-bottom: 14px solid var(--cor-branco);
   border-left: 14px solid transparent;
   height: 0px;
   width: 1px;
@@ -60,7 +60,7 @@
 
 .line {
   animation: line 5s linear infinite;
-  border-left: 1px dotted #fff;
+  border-left: 1px dotted var(--cor-branco);
   height: 0px;
   width: 0px;
   position: absolute;

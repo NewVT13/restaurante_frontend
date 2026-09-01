@@ -108,6 +108,7 @@ section {
 }
 body {
   line-height: 1;
+  background: var(--cor-fundo-ivory);
 }
 ol,
 ul {

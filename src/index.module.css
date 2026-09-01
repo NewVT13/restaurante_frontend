@@ -1,3 +1,18 @@
+:global(:root) {
+  --cor-fundo-ivory: #f4ece3;
+  --cor-branco: #ffffff;
+  --cor-terracota: #8f4219;
+  --cor-texto-escuro: #3d312b;
+  --cor-texto-medio: #5d4d43;
+  --cor-texto-suave: #77695c;
+  --cor-borda-suave: #d8cfc6;
+  --cor-sombra-escura: rgba(0, 0, 0, 0.18);
+  --cor-sombra-leve: rgba(0, 0, 0, 0.05);
+  --cor-sombra-card: rgba(0, 0, 0, 0.06);
+  --cor-sombra-card-hover: rgba(0, 0, 0, 0.08);
+  --cor-sombra-botao: rgba(0, 0, 0, 0.2);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,7 +23,7 @@
 
 :global(body) {
   margin: 0;
-  background: #f4ece3;
+  background: var(--cor-fundo-ivory);
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -22,17 +37,17 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  color: #77695c;
+  color: var(--cor-texto-suave);
 }
 
 .containerInput input {
   width: 100%;
   min-height: 46px;
-  border: 1px solid #d8cfc6;
+  border: 1px solid var(--cor-borda-suave);
   border-radius: 10px;
   padding: 0.75rem 0.875rem;
   font-size: 1rem;
-  background: #fff;
+  background: var(--cor-branco);
 }
 
 .containerInput label {
